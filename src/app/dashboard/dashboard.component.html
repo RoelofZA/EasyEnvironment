@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="form-group">
+    <label for="email">Tag Filter:</label>
+    <input type="text" class="form-control" name="filter" placeholder="Filter tags. Example: ussd"
+      (change)="serverFilter($event.target.value)">
+  </div>
+
+  <hr />
+  <div class="table">
+    <div class="table-header">
+      <div class="table-header-cell">DMZ 1</div>
+      <div class="table-header-cell">DMZ 2</div>
+    </div>
+    <div class="table-body">
+      <div class="table-row">
+        <div class="table-cell">
+          <ul class="flex-container">
+            <li class="flex-item" *ngFor="let server of getServersByEnvironment('dmz1')">{{server.name}}</li>
+          </ul>
+        </div>
+        <div class="table-cell">
+          <ul class="flex-container">
+            <li class="flex-item" *ngFor="let server of getServersByEnvironment('dmz2')">{{server.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-header">
+      <div class="table-header-cell">DMZ 3</div>
+      <div class="table-header-cell">Core</div>
+    </div>
+    <div class="table-body">
+      <div class="table-row">
+        <div class="table-cell">
+          <ul class="flex-container">
+            <li class="flex-item" *ngFor="let server of getServersByEnvironment('dmz3')">{{server.name}}</li>
+          </ul>
+        </div>
+        <div class="table-cell">
+          <ul class="flex-container">
+            <li class="flex-item" *ngFor="let server of getServersByEnvironment('core')">{{server.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
