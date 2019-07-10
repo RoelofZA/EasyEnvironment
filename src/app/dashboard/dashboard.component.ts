@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     if (newObj === '') {
        this.servers = this.servers_clean;
      } else {
-       this.servers = this.servers_clean.filter(x => x.tags.some(y => y === newObj));
+       this.servers = this.servers_clean.filter(x => x.tags.some(y => y === newObj.toLowerCase()));
      }
   }
 
@@ -34,6 +34,6 @@ export class DashboardComponent implements OnInit {
     if (this.servers_clean == null) {
       return [];
     }
-    return this.servers.filter(x => x.environment === environmentName);
+    return this.servers.filter(x => x.environment.toLowerCase() === environmentName.toLowerCase());
   }
 }

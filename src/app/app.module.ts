@@ -6,16 +6,22 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ServerAddComponent } from './server/server-add/server-add.component';
+import { ServerEditComponent } from './server/server-edit/server-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    ServerAddComponent,
+    ServerEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

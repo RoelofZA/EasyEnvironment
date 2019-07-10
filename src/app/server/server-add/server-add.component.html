@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Server Name</label>
+        <input type="text" class="form-control" formControlName="server_name" #server_name />
+      </div>
+      <div
+        *ngIf="angForm.controls['server_name'].invalid && (angForm.controls['server_name'].dirty || angForm.controls['server_name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['server_name'].errors.required">
+          Server Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Environment Name </label>
+        <input type="text" class="form-control" formControlName="environment_name" #environment_name />
+      </div>
+      <div
+        *ngIf="angForm.controls['environment_name'].invalid && (angForm.controls['environment_name'].dirty || angForm.controls['environment_name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['environment_name'].errors.required">
+          Environment Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Tags</label>
+        <input type="text" class="form-control" formControlName="tags" #tags/>
+      </div>
+      <div
+        *ngIf="angForm.controls['tags'].invalid && (angForm.controls['tags'].dirty || angForm.controls['tags'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['tags'].errors.required">
+          Tags field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button 
+        (click)="addServer(server_name.value, environment_name.value, tags.value)"
+        type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">Add Server</button>
+      </div>
+    </form>
+  </div>
+</div>
