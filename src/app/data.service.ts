@@ -37,7 +37,7 @@ export class DataService {
     return this.http.get(`${this.uri}/`);
   }
 
-  addServer(server_name, environment, tags) {
+  public addServer(server_name, environment, tags) {
     const obj = {
       server_name: server_name,
       environment: environment,
@@ -46,5 +46,30 @@ export class DataService {
     console.log(obj);
     this.http.post(`${this.uri}/add`, obj)
         .subscribe(res => console.log('Done'));
+  }
+
+  public deleteServer(id) {
+    return this
+              .http
+              .delete(`${this.uri}/delete/${id}`);
+  }
+
+  public editServer(id) {
+    return this
+            .http
+            .get(`${this.uri}/edit/${id}`);
+  }
+
+  updateServer(server_name, environment, tags, id) {
+    console.log(id);
+    const obj = {
+        server_name: server_name,
+        environment: environment,
+        tags: tags
+      };
+    this
+      .http
+      .post(`${this.uri}/update/${id}`, obj)
+      .subscribe(res => console.log('Done'));
   }
 }

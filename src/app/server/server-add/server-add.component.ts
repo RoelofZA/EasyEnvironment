@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-server-add',
@@ -9,7 +10,7 @@ import { DataService } from 'src/app/data.service';
 })
 export class ServerAddComponent implements OnInit {
   angForm: FormGroup;
-  constructor(private fb: FormBuilder, private ds: DataService) {
+  constructor(private router: Router, private fb: FormBuilder, private ds: DataService) {
     this.createForm();
   }
 
@@ -26,7 +27,8 @@ export class ServerAddComponent implements OnInit {
 
   addServer(server_name, environment_name, tags) {
     this.ds.addServer(server_name,environment_name, tags);
-    this.angForm.reset();
+    //this.angForm.reset();
+    this.router.navigate(['server/list']);
   }
 
 }

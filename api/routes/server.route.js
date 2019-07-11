@@ -35,13 +35,14 @@ serverRoutes.route('/').get(function (req, res) {
 serverRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   Server.findById(id, function (err, server){
+    console.log(server);
       res.json(server);
   });
 });
 
 //  Defined update route
 serverRoutes.route('/update/:id').post(function (req, res) {
-    Server.findById(req.params.id, function(err, next, server) {
+    Server.findById(req.params.id, function(err, server) {
     if (!server)
       return next(new Error('Could not load Document'));
     else {

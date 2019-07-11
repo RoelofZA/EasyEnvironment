@@ -12,6 +12,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
   width: 410px;
+  margin-bottom: 10px;
 }
 
 .flex-item {
@@ -19,7 +20,7 @@
   padding: 5px;
   width: 200px;
   height: 75px;
-  margin-top: 10px;
+  margin-top: 05px;
   
   line-height: 65px;
   color: white;
@@ -48,7 +49,6 @@
  }
 .table-body{
     display: table-row-group;
-    margin-bottom: 10px;
 }
 .table-row{
     display: table-row;

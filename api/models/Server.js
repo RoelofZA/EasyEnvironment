@@ -11,12 +11,18 @@ let Server = new Schema({
   environment: {
     type: String
   },
+  ip_address: {
+    type: String
+  },
+  os: {
+    type: String
+  },
+  server_type: {
+    type: String
+  },
   tags: {
       type: [String]
-  }/*,
-  business_gst_number: {
-    type: Number
-  }*/
+  }
 },{
     collection: 'server'
 });
