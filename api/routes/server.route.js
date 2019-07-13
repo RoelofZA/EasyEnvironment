@@ -10,6 +10,7 @@ let Server = require('../models/Server');
 // Defined store route
 serverRoutes.route('/add').post(function (req, res) {
   let server = new Server(req.body);
+  console.log(server);
   server.save()
     .then(server => {
       res.status(200).json({'server': 'server in added successfully'});
@@ -48,6 +49,9 @@ serverRoutes.route('/update/:id').post(function (req, res) {
     else {
         server.server_name = req.body.server_name;
         server.environment = req.body.environment;
+        server.ip_address = req.body.ip_address;
+        server.os = req.body.os;
+        server.server_type = req.body.server_type;
         server.tags = req.body.tags;
 
         server.save().then(servers => {

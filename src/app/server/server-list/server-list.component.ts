@@ -17,7 +17,6 @@ export class ServerListComponent implements OnInit {
   }
 
   public deleteServer(id) {
-    console.log(id);
     this.dataService.deleteServer(id)
     .subscribe(data => {
       this.dataService.getServers()

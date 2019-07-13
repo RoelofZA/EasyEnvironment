@@ -18,6 +18,9 @@ export class ServerAddComponent implements OnInit {
     this.angForm = this.fb.group({
       server_name: ['', Validators.required ],
       environment_name: ['', Validators.required ],
+      ip_address: ['', Validators.required ],
+      os: ['', Validators.required ],
+      server_type: ['', Validators.required ],
       tags: ['', Validators.required ]
     });
   }
@@ -25,10 +28,9 @@ export class ServerAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  addServer(server_name, environment_name, tags) {
-    this.ds.addServer(server_name,environment_name, tags);
-    //this.angForm.reset();
-    this.router.navigate(['server/list']);
+  addServer(server_name, environment_name, ip_address, os, server_type, tags) {
+    this.ds.addServer(server_name, environment_name, ip_address, os, server_type, tags).subscribe(res => 
+      this.router.navigate(['server/list'])
+      );
   }
-
 }

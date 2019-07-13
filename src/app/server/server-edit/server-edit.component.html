@@ -3,7 +3,7 @@
     <form [formGroup]="angForm" novalidate>
       <div class="form-group">
         <label class="col-md-4">Server Name</label>
-        <input type="text" class="form-control" formControlName="server_name" #server_name [(ngModel)] = "server.server_name" />
+        <input type="text" class="form-control" formControlName="server_name" #server_name  />
       </div>
       <div
         *ngIf="angForm.controls['server_name'].invalid && (angForm.controls['server_name'].dirty || angForm.controls['server_name'].touched)"
@@ -14,7 +14,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Environment Name </label>
-        <input type="text" class="form-control" formControlName="environment_name" #environment_name [(ngModel)] = "server.environment"/>
+        <input type="text" class="form-control" formControlName="environment_name" #environment_name />
       </div>
       <div
         *ngIf="angForm.controls['environment_name'].invalid && (angForm.controls['environment_name'].dirty || angForm.controls['environment_name'].touched)"
@@ -24,8 +24,41 @@
         </div>
       </div>
       <div class="form-group">
+        <label class="col-md-4">IP Address </label>
+        <input type="text" class="form-control" formControlName="ip_address" #ip_address />
+      </div>
+      <div
+        *ngIf="angForm.controls['ip_address'].invalid && (angForm.controls['ip_address'].dirty || angForm.controls['ip_address'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['ip_address'].errors.required">
+          IP Address is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">OS </label>
+        <input type="text" class="form-control" formControlName="os" #os />
+      </div>
+      <div
+        *ngIf="angForm.controls['os'].invalid && (angForm.controls['os'].dirty || angForm.controls['os'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['os'].errors.required">
+          OS is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Server Type </label>
+        <input type="text" class="form-control" formControlName="server_type" #server_type />
+      </div>
+      <div
+        *ngIf="angForm.controls['server_type'].invalid && (angForm.controls['server_type'].dirty || angForm.controls['server_type'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['server_type'].errors.required">
+          OS is required.
+        </div>
+      </div>
+      <div class="form-group">
         <label class="col-md-4">Tags</label>
-        <input type="text" class="form-control" formControlName="tags" #tags [(ngModel)] = "server.tags"/>
+        <input type="text" class="form-control" formControlName="tags" #tags/>
       </div>
       <div
         *ngIf="angForm.controls['tags'].invalid && (angForm.controls['tags'].dirty || angForm.controls['tags'].touched)"
@@ -36,7 +69,7 @@
       </div>
       <div class="form-group">
         <button 
-        (click)="updateServer(server_name.value, environment_name.value, tags.value)"
+        (click)="updateServer(server_name.value, environment_name.value, ip_address.value, os.value, server_type.value, tags.value)"
         class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">Update Server</button>
       </div>
     </form>
