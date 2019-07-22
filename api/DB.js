@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/easyenvironment'
+    DB: 'mongodb://docker.for.mac.localhost:27017/easyenvironment'
  };
