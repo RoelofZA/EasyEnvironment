@@ -1,11 +1,6 @@
-# Specify base image
-FROM node:alpine
+FROM evild/alpine-nginx
 
+#COPY nginx.conf /etc/nginx/conf/nginx.conf
 
-# Copy Files
-COPY ./ ./
-# Install some dependencies
-RUN npm install
-
-# Default Commands
-CMD ["npm", "start"]
+WORKDIR /etc/nginx/html
+COPY dist/EasyEnvironment/. /usr/html
